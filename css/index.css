@@ -1,20 +1,27 @@
 li{
-    background-color : gray;
     color: white;
 }
 
 li:hover{
     color : red;
     background-color : white;
+    border-radius: 10px;
+    margin: 15px;
+    
 }
 
 a {
     text-decoration : none;
+    color:black;
+}
+
+a:hover{
+    color : pink;
 }
 
 #div1 {
     width:300px;
     height:300px;
     font-size :50px;
-    background-color :gray;
+    border-radius: 30px;
 }
