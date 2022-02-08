@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func1() {
+            console.log(`옛날 방식`)
+        }
+
+        func1();
+
+        const func2 = function() {
+            console.log(`요즘 방식`)
+        }
+
+        func2();
+
+        const func3 = () => {
+            console.log(`조금 더 깔끔한 방식`)
+        }
+
+        func3();
+
+        const func4 = item => {
+            console.log(item)
+        }
+
+        func4("파라미터가 한 개인 경우에는 파라미터명만 적어주면 된다.");
+    </script>
+</body>
+</html>
