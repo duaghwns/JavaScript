@@ -7,14 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<div id="overview">asdfasdf</div>
-
 <script>
-const div = document.querySelector('div')
-const div1 = document.getElementById('overview')
-console.log(div)
-console.log(div1);
-
 // 변수 선언
 // es5
     var a = 1;
@@ -24,7 +17,6 @@ console.log(div1);
     let d = 4;
 
     const arr = [a, b, c, d];
-
 
     // 호이스팅
     console.log(vari) // 변수를 선언하기도 전에 호출을 했지만 var vari 를 한 것과 같은 상태
@@ -47,52 +39,6 @@ console.log(div1);
     for (let i in arr){
         console.log(i);
     }
-
-    // 반복문
-    // default
-    for(let i = 0; i < arr.length;i++) {
-        console.log(`기본 반복문 ${arr[i]}`);
-    }
-    // index
-    for (const key in arr) {
-        console.log(`index ${key}`);
-    }
-
-    // of
-    for(const object of arr) {
-        console.log(` of ${object}`)
-    }
-
-    // 조건문
-
-    if(""){
-        console.log(`""`)
-    }
-    
-    let ifStr = "";
-    if(ifStr){
-        console.log(`ifStr : ${ifStr}`)
-    }
-
-    ifStr = "hello"
-    if(ifstr){
-        console.log(`ifStr2 : ${ifStr}`)
-    }
-
-    if("hello"){
-        console.log(`hello`)
-    }
-
-
-    if(true){
-        console.log(`true`)
-    }
-
-    if(false) {
-        console.log(`false`)
-    }
-
-
 </script>
 </body>
 </html>
