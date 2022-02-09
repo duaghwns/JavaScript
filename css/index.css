@@ -4,9 +4,6 @@ li{
 
 li:hover{
     color : red;
-    background-color : white;
-    border-radius: 10px;
-    margin: 15px;
 }
 
 a {
@@ -16,6 +13,9 @@ a {
 
 a:hover{
     color : pink;
+    background-color : white;
+    border-radius: 10px;
+    margin: 15px;
 }
 
 #div1 {
