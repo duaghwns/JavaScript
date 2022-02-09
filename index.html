@@ -18,9 +18,28 @@
             <li><a href="기초/function.html">함수</a></li>
         </ul>
     </div>
+    <hr>
+    <div class="divClass">
+        <input type="text" name="inputText" id="inputText">
+        <input type="button" value="simpleButton" onclick="func1()">
+        <ol class="id_ol">
+        </ol>
+    </div>
 <script>
- 
+    const arr = ["1,2,3,4,5","염",'호','준'];
+    const inputText = document.getElementById('inputText');
+    console.log(inputText);
+    
 
+    const func1 = () => {
+        const ul2 = document.querySelector('.id_ol');
+        const createList = document.createElement('li');
+        const listText = document.createTextNode(inputText.value);
+        console.log(inputText.value)
+        createList.appendChild(listText);
+        document.body.appendChild(createList);
+        ul2.appendChild(createList);
+    }
 </script>
 </body>
 </html>
