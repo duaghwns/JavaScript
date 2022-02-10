@@ -24,3 +24,16 @@ a:hover{
     font-size :50px;
     border-radius: 30px;
 }
+
+.codes {
+    width: 600px;
+    background-color : rgba(208, 208, 208, 0.502);
+    margin: 15px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.codes:hover {
+    padding: 15px;
+    background-color : rgba(176, 176, 176, 0.673);
+}
