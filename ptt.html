@@ -23,9 +23,46 @@
    <h1>asdfasdfas</h1> ㅁㄴㅇㄹ
    <a href="page.html">page</a>
 <script>
-    var a;
-    console.log(a);
-    var a = 1;
+    function func() {
+        var i = 1;
+        // var 로 정의된 변수는 함수 스코프이기 때문에 함수를 벗어난 영역에서 사용하면 에러가 발생한다.
+    }
+    //console.log(i) // 에러 발생
+
+    // 이렇게 작성했을 때 i는 호이스팅이 되면서 상단에 var i;로 선언이 되기 때문에 i에 1이라는 값이 할당이 된다.
+    function func1(){
+        i = 1;
+    }
+
+    function func2() {
+        console.log(i);
+    }
+
+    func1();
+    func2();
+
+
+    var user = {
+        id: 1,
+        name: 'hojoon',
+        gender: 'male'
+    }
+
+    var changeName = (user, newName) => {
+        return {
+            id: user.id,
+            name : newName,
+            gender: user.gender
+        }
+    };
+
+    var user2 = changeName(user,'joonho');
+
+    if(user !== user2){
+        console.log('유저 정보가 변경되었습니다')
+        console.log(user)
+        console.log(user2)
+    }
 </script>
 </body>
 </html>
