@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수
+        //es5
+        // console.log(변수명)
+        // var 변수명 = 1;
+        // console.log(변수명)
+        // // 호이스팅 의 개념
+        // // var의 문제점
+        // // 1. 같은 변수명으로 재선언이 가능해요
+        // var 변수명 = 2;
+        // console.log(변수명)
+        // // 2. 함수 레벨 스코프 ??
+        // if(true){
+        //     var data = 10;
+        // }
+        // console.log(data);
+        // 3. 변수 호이스팅
+        // var 로 선언된 변수를 최상단으로 끌어 올리는 것
+
+        // 상수와 새로운 변수 표기법
+        const constdata ='constdata';
+        // 상수는 값을 다시 할당 할 수 없기 때문에 초기값을 세팅해줘야 한다.
+        let letdata = 'letdata';
+        console.log(constdata);
+        console.log(letdata);
+
+        // 조건문
+        // if
+        let data = 5;
+        // if(data < 5){
+        //     console.log(constdata)
+        // } else if(data === 5) {
+        //     console.log(letdata)
+        // } else {
+        //     console.log(`i don't know`)
+        // }
+
+        // if("ㅁㄴㅇㄹ"){
+        //     console.log(constdata)
+        // }
+        // switch
+        let result;
+        switch(data){
+            case 5:console.log(`data1 is ${data}`);break;
+            case 4:console.log(`data2 is ${data}`);break;
+            case 3:console.log(`data3 is ${data}`);break;
+            default: console.log(`default is ${data}`);break;
+        }
+        switch(data){
+            case 5:result = data+1; break;
+            case 4:result = data+2;break;
+            case 3:result = data+3;break;
+            default: result = undefined;break;
+        }
+        console.log(result);
+        const list = [1,2,3,4,5,{name:'duaghwns',age:27}]
+        // 반복문
+        // normal for
+        for(let i=1; i<=10; i++){
+            console.log(i)
+        }
+        // foreach
+        list.forEach((i,j,k,n)=>{
+            console.log(`object = ${i}`) // 첫번째 파라미터는 리스트 값을 차례대로 호출
+            console.log(`index = ${j}`) // 인덱스
+            console.log(`listValue = ${k}`) // 리스트의 전체 값
+            console.log(`undefined = ${n}`) // 3번째 이상으로는 값이 없음
+        })
+        // for of
+        for(const i of list) { // 배열 안의 값은 바뀌지 않으니까 상수로 선언해줘도 문제 없음
+            console.log(i)
+        }
+        // for in
+        for(const i in list) { // 배열 안의 인덱스는 바뀌지 않으니까 상수로 선언해줘도 문제 없음
+            console.log(i)
+        }
+        // 함수
+        function functest(text){
+            console.log(text)
+        }
+        functest('hi');
+
+        const func2 = function(text){
+            console.log(text)
+        }
+        func2('hello')
+
+        const func3 = (text) => {
+            console.log(text)
+        }
+        func3('world')
+
+        const func4 = text => {
+            console.log(text)
+        }
+        func4('배고파')
+    </script>
+</body>
+</html>
