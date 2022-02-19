@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 변수
+    // 3. 호이스팅  개념: var 로 선언된 변수들을 최상다에서 다시 선언해주는 것
+    // 1. 같은 변수명으로 재선언이 가능하다.
+    // var로 선언된 변수들을 가장 최상단에서 값을 할당하지 않은 채 선언하는 것이라고 생각하면 도ㅣ겠습니다
+    // var vari;
+    // console.log(vari);
+    // var vari = 1;
+    // console.log(vari);
+    // // 2. 함수스코프를 dksdptj  바깥에서도 사용이 가능하다.
+    // if(true){
+    //     var variaiai = 10;
+    // }
+    // console.log(variaiai);
+
+    // for(var i=0;i<10;i++){
+    // }
+    // console.log(i)
+
+    // es6
+    // const 와 let
+    // const = 상수
+    // let = 변수
+
+    // console.log((constt))
+    // console.log(lett)
+    // const constt = 10;
+    // console.log(constt)
+    // let lett;
+    // lett = 1000;
+    // console.log(lett)
+
+    // // 조건문
+    // if(!(1<5)){
+    //     console.log(true)
+    // } else if(!(1<5)){} {
+    //     console.log(false)
+    // }
+
+
+    // let data = 5;
+    // switch(data){
+    //     case 5: console.log(5); break;
+    //     case 4: console.log(4);break;
+    //     case 3: console.log(3);break;
+    //     case 2: console.log(2);break;
+    //     default: console.log('defasdf');
+    // }
+    // 반복문
+    // for(let i=0; i<10;i++){
+    //     console.log(i)
+    // }
+
+    const arr = [1,2,3,4,5,6,{name:'hojoon',age:27}];
+
+    // 값을 가져오싶은 경우
+    for(const item of arr){
+        console.log(item)
+    }
+    // 인덱스를 찾고싶으 ㄴ경우
+    for(const item in arr){
+        console.log(item)
+    }
+
+    arr.forEach((i,j,k,n)=>{
+        // console.log(i)
+        console.log(j)
+        // console.log(k)
+        // console.log(n)
+    })
+
+    // 함수
+    // function asdf(data) {
+    //     console.log(data)
+    // }
+
+    // asdf("hojoon")
+
+    // const asdf1 = function(h) {
+    //     console.log(h)
+    // }
+
+    // asdf1("hello")
+
+    // const asdf2 = (item) => {
+    //     console.log(item)
+    // }
+    // asdf2("world")
+    
+    // const asdf3 = item => {
+    //     console.log(item+123)
+    // }
+
+    // const hell = "hello"
+    // // asdf3(hell+"w"o"'r'ld")
+    
+    // asdf3(`${hell} "w'o"r'ld`)
+
+    const a = 1;
+    if(a == 1) {
+        console.log("foo")
+    }
+
+</script>
+</body>
+</html>
