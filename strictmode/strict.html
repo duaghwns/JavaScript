@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+<script>
+    const strict = () => {
+        /* 
+        'use strict' 하나 추가함으로써 엄격 모드로 바뀜
+        var, let, const 를 사용하지 않고 변수를 생성할 경우 전역스코프를 타게 되어
+        함수 바깥에서도 x에 값이 할당됌
+        */
+       'use strict' 
+        x = 10;
+    }
+    strict();
+
+    console.log(x)
+</script>
 </body>
 </html>
