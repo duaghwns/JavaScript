@@ -1,5 +1,5 @@
 const $input = document.querySelector('#debounce')
-const $msg = document.querySelector('.msg')
+const $msg = document.querySelector('#msg1')
 
 const debounce = (callback, delay) => {
     let timer;
