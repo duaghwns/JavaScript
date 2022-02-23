@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(252, 216, 169, 0.137);
+        }
+        .inform{
+            position: absolute;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="inform">
+        <p>
+            <h1>디바운싱</h1>
+            <hr>
+            <ul>
+                <li>연이어 호출되는 함수들 중 마지막 함수 ( 또는 제일 처음 ) 만 호출되도록 하는 것</li>
+                <br>
+                <li>짧은 시간 간격으로 이벤트가 연속해서 발생하면 이벤트 핸들러를 호출하지 않고 일정 시간이 경과한 이후에 이벤트 핸들러가 한 번만 호출되도록 한다.</li>
+            </ul>
+            <input type="text" name="" id="debounce">
+            <div class="msg"></div>
+        </p>
+        <br>
+        <p>
+            <h1>쓰로틀링</h1>
+            <hr>
+            <ul>
+                <li>마지막 함수가 호출된 후 일정 시간이 지나기 전에 다시 호출되지 않도록 하는 것</li>
+                
+            </ul>
+            <input type="text" name="" id="throttling">
+            <div class="msg"></div>
+        </p>
+    </div>
+<script src="./debouncing.js"></script>
+<script src="./throttling.js"></script>
+</body>
+</html>
