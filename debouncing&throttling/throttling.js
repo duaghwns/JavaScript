@@ -2,10 +2,6 @@ const $scrollHere = document.querySelector('.scrollHere');
 const $normal = document.querySelector('#normal');
 const $throttled = document.querySelector('#throttling');
 
-console.log($scrollHere)
-console.log($normal)
-console.log($throttled)
-
 const throttle = (callback, delay) => {
     let timer;
     return event => {
