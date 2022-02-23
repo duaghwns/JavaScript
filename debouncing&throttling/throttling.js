@@ -20,17 +20,15 @@ const throttle = (callback, delay) => {
 let Count = { normalCount:0, throttlingCount:0};
 
 $scrollHere.addEventListener('scroll', ()=>{
-    console.log(123)
     $normal.textContent = ++Count.normalCount;
 });
 
 const colr = ['red','yellow','green','blue','blueviolet'];
 let cnt = 0;
 $scrollHere.addEventListener('scroll', throttle(()=>{
-    console.log(123)
     $throttled.textContent = ++Count.throttlingCount;
     
-    if(Count.throttlingCount % 10==0){
+    if(Count.throttlingCount % 5==0){
         $scrollHere.style.backgroundColor = colr[cnt++];
     }
     if(cnt==4){

@@ -27,6 +27,11 @@
 
         .scrollHere:hover{
             text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+            overflow: scroll;
+        }
+
+        .scrollTest {
+            height: 2000px;
         }
     </style>
 </head>
@@ -53,7 +58,10 @@
                 <li>이벤트가 연속해서 발생하더라도 일정 시간을 두어 이벤트 핸들러가 호출되도록 한다.</li>
             </ul>
             <div>
-                <div class="scrollHere">Scroll Here !</div>
+                <div class="scrollHere">
+                    <span>Scroll Here !</span>
+                    <div class="scrollTest"></div>
+                </div>
                 <div>
                     일반 핸들러 scroll 이벤트 : <span class="msg" id="normal"></span>
                 </div>
