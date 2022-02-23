@@ -28,10 +28,8 @@ let cnt = 0;
 $scrollHere.addEventListener('scroll', throttle(()=>{
     $throttled.textContent = ++Count.throttlingCount;
     
-    if(Count.throttlingCount % 5==0){
+    if(Count.throttlingCount % 2==0){
         $scrollHere.style.backgroundColor = colr[cnt++];
-    }
-    if(cnt==4){
-        cnt = 0;
+        if(cnt==5) cnt = 0;
     }
 },100));
