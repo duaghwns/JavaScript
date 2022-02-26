@@ -13,16 +13,16 @@ const throttle = (callback, delay) => {
     };
 };
 
-let Count = { normalCount:0, throttlingCount:0};
+const count = { normal:0, throttling:0};
 
 $scrollHere.addEventListener('scroll', ()=>{
-    $normal.textContent = ++Count.normalCount;
+    $normal.textContent = ++count.normal;
 });
 
 const colr = ['red','yellow','green','blue','blueviolet'];
 let cnt = 0;
 $scrollHere.addEventListener('scroll', throttle(()=>{
-    $throttled.textContent = ++Count.throttlingCount;
+    $throttled.textContent = ++count.throttling;
     
     if(Count.throttlingCount % 2==0){
         $scrollHere.style.backgroundColor = colr[cnt++];
