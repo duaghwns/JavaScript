@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    // 객체 가변성에 따른 문제점
+    const user = {
+        name:'hojoon',
+        gender:'male'
+    };
+
+    const changeName = (user, newName)=>{
+        const newUser = user; // user의 값을 참조하는 것이 아닌 메모리 주소를 참조
+        newUser.name = newName;
+        return newUser
+    }
+
+    let user2 = changeName(user,'ghwns');
+
+    if(user!=user2) console.log('유저 정보가 변경되었습니다.')
+    
+    console.log(user.name) // ghwns
+    console.log(user2.name) // ghwns
+    console.log(user === user2) // true
+    
+    // 해결방법
+    const changeName2 = (user, newName) => {
+        return {
+            name: newName,
+            gender: user.gender
+        }
+    }
+    
+    user2 = changeName2(user,'호준')
+
+    if(user!=user2) console.log('유저 정보가 변경되었습니다.')
+    console.log(user.name) // ghwns
+    console.log(user2.name) // 호준
+    console.log(user === user2) // false
+
+
+</script>
+</body>
+</html>
