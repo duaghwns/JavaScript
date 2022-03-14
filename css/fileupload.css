@@ -1,9 +1,13 @@
+body{
+    background-color: antiquewhite;
+}
 .box{
     width:600px;
     height:200px;
     background-color:lightblue;
     display:flex;
     border-radius: 30px;
+    text-align:center;
 }
 
 span {
@@ -12,8 +16,5 @@ span {
 }
 
 #file {
-    margin-top: 20px;
-    background-color:lightblue;
-    width: 600px;
-    height:200px; 
+    display: none;
 }

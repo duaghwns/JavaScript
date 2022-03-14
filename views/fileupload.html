@@ -8,10 +8,13 @@
     <title>파일업로드</title>
 </head>
 <body>
-    <div class="box" multipart type="file" onChange="this.handleChangeFile">
-        <span>drag in here</span>
-    </div>
-    <input type="file" id="file" multipart="multipart/form-data" onChange={this.handleChangeFile}>
+    <form action="upload" method="post" enctype="multipart/form">
+        <div class="box" multiple type="file" onChange="this.handleChangeFile">
+            <span>🥽drag in here</span>
+        </div>
+        <input type="file" id="file" multipart="multipart/form-data" onChange={this.handleChangeFile}>
+        <input type="submit" value="submit">
+    </form>
 <script src="../js/fileupload.js"></script>
 </body>
 </html>
