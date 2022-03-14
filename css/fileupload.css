@@ -1,0 +1,19 @@
+.box{
+    width:600px;
+    height:200px;
+    background-color:lightblue;
+    display:flex;
+    border-radius: 30px;
+}
+
+span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#file {
+    margin-top: 20px;
+    background-color:lightblue;
+    width: 600px;
+    height:200px; 
+}

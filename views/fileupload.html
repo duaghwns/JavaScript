@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fileupload.css">
     <title>파일업로드</title>
 </head>
 <body>
-    <div>
-        
+    <div class="box" multipart type="file" onChange="this.handleChangeFile">
+        <span>drag in here</span>
     </div>
+    <input type="file" id="file" multipart="multipart/form-data" onChange={this.handleChangeFile}>
+<script>
+    const box = document.querySelector('.box');
+    const file = document.querySelector(`#file`)
+    const files = file.files;
+
+    files.forEach(obj =>{
+        console.log(obj)
+    })
+    console.log(files)
+
+    handleChangeFile = e => {
+        e.preventDefault();
+    }
+
+
+
+</script>
 </body>
 </html>
