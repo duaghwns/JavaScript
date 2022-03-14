@@ -12,22 +12,6 @@
         <span>drag in here</span>
     </div>
     <input type="file" id="file" multipart="multipart/form-data" onChange={this.handleChangeFile}>
-<script>
-    const box = document.querySelector('.box');
-    const file = document.querySelector(`#file`)
-    const files = file.files;
-
-    files.forEach(obj =>{
-        console.log(obj)
-    })
-    console.log(files)
-
-    handleChangeFile = e => {
-        e.preventDefault();
-    }
-
-
-
-</script>
+<script src="../js/fileupload.js"></script>
 </body>
 </html>
