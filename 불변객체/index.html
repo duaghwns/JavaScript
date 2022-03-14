@@ -16,7 +16,7 @@
         gender:'male'
     };
 
-    const changeName = (user, newName)=>{
+    const changeName = (user, newName)=>{ // 얕은 복사
         const newUser = user; // user의 값을 참조하는 것이 아닌 메모리 주소를 참조
         newUser.name = newName;
         return newUser
@@ -30,7 +30,7 @@
     console.log(user2.name) // ghwns
     console.log(user === user2) // true
     
-    // 해결방법
+    // 해결방법(깊은 복사)
     const changeName2 = (user, newName) => {
         return {
             name: newName,
