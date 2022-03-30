@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디바운딩과 스로틀링</title>
+    <style>
+        body {
+            background-color: rgba(252, 216, 169, 0.137);
+        }
+        .inform{
+            position: absolute;
+            display: inline-block;
+        } 
+
+        .msg {
+            font-size: 24px;
+        }
+        .scrollHere{
+            text-align: center;
+            font-size: 32px;
+            background-color:red;
+            width: 200px;
+            height: 200px;
+        }
+
+        .scrollHere:hover{
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+            overflow: scroll;
+        }
+
+        .scrollTest {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inform">
+        <p>
+            <h1>🎈 디바운싱</h1>
+            <hr>
+            <ul>
+                <li>연이어 호출되는 함수들 중 마지막 함수 ( 또는 제일 처음 ) 만 호출되도록 하는 것</li>
+                <br>
+                <li>짧은 시간 간격으로 이벤트가 연속해서 발생하면 이벤트 핸들러를 호출하지 않고 일정 시간이 경과한 이후에 이벤트 핸들러가 한 번만 호출되도록 한다.</li>
+            </ul>
+            아무거나 입력 : <input type="password" name="" id="debounce"><br>
+            <div>입력 결과 : <span class="msg" id="msg1"></span></div>
+        </p>
+        <br>
+        <p>
+            <h1>🎨 쓰로틀링</h1>
+            <hr>
+            <ul>
+                <li>마지막 함수가 호출된 후 일정 시간이 지나기 전에 다시 호출되지 않도록 하는 것</li>
+                <br>
+                <li>이벤트가 연속해서 발생하더라도 일정 시간을 두어 이벤트 핸들러가 호출되도록 한다.</li>
+            </ul>
+            <div>
+                <div class="scrollHere">
+                    <span>Scroll Here !</span>
+                    <div class="scrollTest"></div>
+                </div>
+                <div>
+                    일반 핸들러 scroll 이벤트 : <span class="msg" id="normal"></span>
+                </div>
+                <div>
+                    스크롤링 scroll 이벤트 : <span class="msg" id="throttling"></span>
+                </div>
+            </div>
+        </p>
+    </div>
+<script src="../js/debouncing.js"></script>
+<script src="../js/throttling.js"></script>
+</body>
+</html>

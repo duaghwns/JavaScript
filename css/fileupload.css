@@ -1,0 +1,20 @@
+body{
+    background-color: antiquewhite;
+}
+.box{
+    width:600px;
+    height:200px;
+    background-color:lightblue;
+    display:flex;
+    border-radius: 30px;
+    text-align:center;
+}
+
+span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#file {
+    display: none;
+}
