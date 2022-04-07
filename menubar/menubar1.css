@@ -33,3 +33,26 @@
     position: relative;
 
 }
+.items::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:red;
+    width: 90px;
+    height: 5px;
+}
+
+.items:nth-child(2)::before{
+    left: 90px;
+    background-color :blue;
+
+}
+.items:nth-child(3)::before{
+    left: 180px;
+    background-color :green;
+    
+}
+.items .active {
+    display: inline-block;
+}
