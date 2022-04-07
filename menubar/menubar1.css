@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.tabs {
+.tabs { 
     display: flex;
 }
 
@@ -23,7 +23,7 @@
     border: 0.5px solid white;
     color: white;
     position: relative;
-}
+} 
 
 .items {
     width: 300px;
