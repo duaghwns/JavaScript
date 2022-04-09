@@ -3,5 +3,20 @@ body {
 }
 
 .container{
-    
+    background-color: black;
+    width: 800px;
+    height: 800px;
+    position: relative;
+    border: 2px solid red;
+}
+
+.lotto {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color:#fff;
+    margin: 2px;
+    font-size: 60px;
+    text-align: center;
+    text-rendering: bold;
 }
