@@ -3,11 +3,33 @@ body {
 }
 
 .container{
+
     background-color: black;
     width: 800px;
     height: 800px;
     position: relative;
     border: 2px solid red;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.lottoNumbers {
+    position: relative;
+    display: flex;
+    margin: 20px;
+    user-select: none;
+}
+
+.choiceNum {
+    width: 40px;
+}
+
+.choiceNumber {
+    user-select: none;
+}
+
+.selectNumber {
+    user-select: none;
 }
 
 .lotto {
@@ -15,8 +37,23 @@ body {
     width: 100px;
     height: 100px;
     background-color:#fff;
-    margin: 2px;
+    margin: 5px;
     font-size: 60px;
     text-align: center;
     text-rendering: bold;
+}
+
+.numbers.active {
+    background-color: black;
+    color:gray;
+}
+
+.numbers {
+    background-color: #fff;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
 }
