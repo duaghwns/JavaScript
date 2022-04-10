@@ -26,6 +26,9 @@ body {
 
 .choiceNumber {
     user-select: none;
+    margin-left: 30%;
+    margin-top: 60px;
+    margin-bottom: 50px;
 }
 
 .selectNumber {
