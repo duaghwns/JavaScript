@@ -1,4 +1,5 @@
 const autoButton = document.querySelector('#lotto');
+const initialization = document.querySelector('#initialization');
 const numBox = document.querySelectorAll('.lotto');
 const numbers = document.querySelectorAll('.numbers');
 const choiceNum = document.querySelectorAll('.choiceNum');
@@ -30,13 +31,22 @@ numbers.forEach(num => {
     num.addEventListener('click',()=>{
         num.classList.add('active');
         choiceNum[cnt].value = num.innerHTML;
-        console.log(num.innerHTML)
-        console.log(choiceNum[cnt])
-        const active = document.querySelector('.active');
-        active.addEventListener('click',()=>{
-            active.classList.remove('active');
+        
+        const active = document.querySelectorAll('.active');
+        active.forEach( act =>{
+            act.addEventListener('click',()=>{
+                act.classList.remove('active');
+            });
         });
     });
-})
-autoButton.addEventListener('click',excute);
+});
 
+
+
+
+autoButton.addEventListener('click',excute);
+initialization.addEventListener('click',()=>{
+    numBox.forEach((i,j)=>{
+        i.innerHTML = null;
+    });
+});
