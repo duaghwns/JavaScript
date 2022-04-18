@@ -1,0 +1,31 @@
+.calc{
+    position: relative;
+    margin-left:40%;
+    top: 40px;
+}
+
+.body{
+    display: inline-block;
+}
+
+#inputbox {
+    border: 1px solid grey;
+    height:40px;
+    width:100%;
+}
+
+button{
+    height:60px;
+}
+.action_body{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+}
+.num_body {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#inputbox {
+    font-size: 25px;
+}
