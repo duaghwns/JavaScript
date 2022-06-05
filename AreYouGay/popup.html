@@ -24,17 +24,28 @@
     </div>
 <script>
     const btn = document.querySelectorAll('.btn')
-
-    btn[0].addEventListener('click',e => {
-        // e.preventDefault();
-        console.log(123)
-    })
-
-    btn[0].addEventListener('mouseover',e => {
-        // e.preventDefault();
-        e.target.value = "Yes I'm Gay";
-    })
     
+    btn.forEach(obj => {
+
+        obj.addEventListener('click', e =>{
+            const data = {
+                url : "./result.html",
+                nane : "yes iam gay"
+            }
+            const option = "width = 280, height = 170, top = 500, left = 500, location = no"
+            window.open(data.url, data.name, option);
+        })
+
+        obj.addEventListener('mouseover', e =>{
+            obj.innerHTML = "yes I'm Gay"
+        })
+    })
+
+
+    window.addEventListener('load',()=>{
+        window.scrollTo(0,1);
+    },false)
+
 </script>
 </body>
 </html>

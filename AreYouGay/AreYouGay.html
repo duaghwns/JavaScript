@@ -7,10 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="btn" onclick="OpenPopup()">Open PopUp</button>
 <script>
-    const btn = document.querySelector('#btn')
-
+    window.onload = OpenPopup;
+    
     function OpenPopup() {
         console.log('hiihi')
         let data = {
