@@ -7,18 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" name="hoicha" id="hoicha" class="hoicha">
     <div class="lotto"></div>
 
-    <input type="button" value="get it!" class="getLottoNumbers">
+    <input type="button" value="get numbers!" class="getLottoNumbers">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script>
     const lotto = document.querySelector('.lotto')
     const btn = document.querySelector('.getLottoNumbers')
 
     btn.addEventListener('click', () => {
+        const hoicha = document.querySelector('#hoicha').value;
+
+        let lotto_api_url = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${hoicha}`;
+
+        console.log(lotto_api_url);
+
         $.ajax({
-            url:"https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=931",
-            type:"GET",
+            url: lotto_api_url,
+            dataType:'json',
+            type:'GET',
             success: data => {
                 console.log(data)
                 lotto.innerHTML = data;
