@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" name="hoicha" id="hoicha" class="hoicha">
+    <input type="number" name="hoicha" id="hoicha" class="hoicha">
     <div class="lotto"></div>
 
     <input type="button" value="get numbers!" class="getLottoNumbers">
@@ -22,9 +22,20 @@
         let lotto_api_url = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${hoicha}`;
 
         console.log(lotto_api_url);
-
+        //ajaxGetLotto(lotto_api_url);
+        fetchGetLotto(lotto_api_url);
+    })
+    
+    const fetchGetLotto =  lottoUrl => {
+        fetch(lottoUrl).then(res=> {
+            console.log(res)
+            lotto.innerHTML = data;
+        });
+    }
+    
+    const ajaxGetLotto = lottoUrl => {
         $.ajax({
-            url: lotto_api_url,
+            url: lottoUrl,
             dataType:'json',
             type:'GET',
             success: data => {
@@ -32,7 +43,7 @@
                 lotto.innerHTML = data;
             }  
         })
-    })
+    }
 </script>
 </body>
 </html>
