@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -13,6 +11,7 @@
     <input type="button" value="get numbers!" class="getLottoNumbers">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script>
+
     const lotto = document.querySelector('.lotto')
     const btn = document.querySelector('.getLottoNumbers')
 
@@ -22,14 +21,19 @@
         let lotto_api_url = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${hoicha}`;
 
         console.log(lotto_api_url);
-        //ajaxGetLotto(lotto_api_url);
+
+        ajaxGetLotto(lotto_api_url);
         fetchGetLotto(lotto_api_url);
     })
     
     const fetchGetLotto =  lottoUrl => {
-        fetch(lottoUrl).then(res=> {
+        fetch(lottoUrl).then(res => {
+
+            res.setHeader('Access-Control-Allow-origin','*');
+            res.setHeader('Access-Control-Allow-Credentials','true');
+
             console.log(res)
-            lotto.innerHTML = data;
+            lotto.innerHTML = res;
         });
     }
     
@@ -37,10 +41,11 @@
         $.ajax({
             url: lottoUrl,
             dataType:'json',
+            contentType: 'text/html',
             type:'GET',
-            success: data => {
-                console.log(data)
-                lotto.innerHTML = data;
+            success: res => {
+                console.log(res)
+                lotto.innerHTML = res;
             }  
         })
     }
