@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
     <input type="number" name="hoicha" id="hoicha" class="hoicha">
     <div class="lotto"></div>
 
     <input type="button" value="get numbers!" class="getLottoNumbers">
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-<script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        const lotto = document.querySelector('.lotto')
+        const btn = document.querySelector('.getLottoNumbers')
 
-    const lotto = document.querySelector('.lotto')
-    const btn = document.querySelector('.getLottoNumbers')
+        btn.addEventListener('click', () => {
+            const hoicha = document.querySelector('#hoicha').value;
 
-    btn.addEventListener('click', () => {
-        const hoicha = document.querySelector('#hoicha').value;
+            let lotto_api_url = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${hoicha}`;
+            
+            //lotto_api_url = 'https://codingapple1.github.io/price.json';
+            console.log(lotto_api_url);
 
-        let lotto_api_url = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${hoicha}`;
-
-        console.log(lotto_api_url);
-
-        ajaxGetLotto(lotto_api_url);
-        fetchGetLotto(lotto_api_url);
-    })
-    
-    const fetchGetLotto =  lottoUrl => {
-        fetch(lottoUrl).then(res => {
-
-            res.setHeader('Access-Control-Allow-origin','*');
-            res.setHeader('Access-Control-Allow-Credentials','true');
-
-            console.log(res)
-            lotto.innerHTML = res;
-        });
-    }
-    
-    const ajaxGetLotto = lottoUrl => {
-        $.ajax({
-            url: lottoUrl,
-            dataType:'json',
-            contentType: 'text/html',
-            type:'GET',
-            success: res => {
-                console.log(res)
-                lotto.innerHTML = res;
-            }  
+            ajaxGetLotto(lotto_api_url);
+            fetchGetLotto(lotto_api_url);
         })
-    }
-</script>
+
+        const fetchGetLotto = lottoUrl => {
+            try {
+                fetch(lottoUrl).then(res => {
+                    console.log(res.json())
+                    lotto.innerHTML = res.json();
+                });
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+        const ajaxGetLotto = lottoUrl => {
+            $.ajax({
+                url: lottoUrl,
+                dataType: 'json',
+                contentType: 'text/html',
+                type: 'GET',
+                success: res => {
+                    console.log(res)
+                    lotto.innerHTML = res;
+                }
+            })
+        }
+    </script>
 </body>
+
 </html>
