@@ -27,7 +27,7 @@
             width: 38px;
             height: 20px;
             background: #fff;
-            border: 2px solid grey;
+            border: 2px solid darkgrey;
             border-radius: 20px;
             transition: 0.2s;
           }
@@ -42,35 +42,43 @@
             width: 14px;
             height: 14px;
             border-radius: 20px;
-            background: black;
+            background: grey;
             transition: 0.2s;
           }
           
           /* checking style */
           #switch:checked+.switch_label {
-            background: #c44;
-            border: 2px solid #c44;
+            background: darkgrey;
+            border: 2px solid darkgrey;
           }
           
           #switch:checked+.switch_label:hover {
-            background: #e55;
+            background: grey;
           }
           
           /* move */
           #switch:checked+.switch_label .onf_btn {
             left: 22px;
             background: #fff;
-            box-shadow: 1px 2px 3px #00000020;
+            box-shadow: 1px 2px 3px darkgrey;
           }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <input type="checkbox" id="switch">
+        <input type="checkbox" id="switch" value="Y">
         <label for="switch" class="switch_label">
             <span class="onf_btn"></span>
         </label>
+        <input type="button" value="check console" onclick="chk()">
     </div>
 
+  <script>
+    const switchBtn = document.querySelector('#switch')
+
+    const chk = () => {
+      console.log(switchBtn.checked)
+    }
+  </script>
 </body>
 </html>
