@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            margin: 50px auto;
+          }
+          #switch {
+            position: absolute;
+            /* hidden */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+          }
+          
+          .switch_label {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            width: 38px;
+            height: 20px;
+            background: #fff;
+            border: 2px solid darkgrey;
+            border-radius: 20px;
+            transition: 0.2s;
+          }
+          .switch_label:hover {
+            background: #efefef;
+          }
+          .onf_btn {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 20px;
+            background: grey;
+            transition: 0.2s;
+          }
+          
+          /* checking style */
+          #switch:checked+.switch_label {
+            background: darkgrey;
+            border: 2px solid darkgrey;
+          }
+          
+          #switch:checked+.switch_label:hover {
+            background: grey;
+          }
+          
+          /* move */
+          #switch:checked+.switch_label .onf_btn {
+            left: 22px;
+            background: #fff;
+            box-shadow: 1px 2px 3px darkgrey;
+          }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="checkbox" id="switch" value="Y">
+        <label for="switch" class="switch_label">
+            <span class="onf_btn"></span>
+        </label>
+        <input type="button" value="check console" onclick="chk()">
+    </div>
+
+  <script>
+    const switchBtn = document.querySelector('#switch')
+
+    const chk = () => {
+      console.log(switchBtn.checked)
+    }
+  </script>
+</body>
+</html>
