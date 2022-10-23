@@ -7,12 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-
-    <div class="scroll-contailner"></div>
-
+    <div class="scroll-contailner" style="width:100%;height:100%;background-color:black;">asdf</div>
 <script>
     const scroll_contailner = document.querySelector('.scroll-contailer');
-    
+    const body = document.querySelector('body');
+
+    const doDrag = e => {
+        console.log('drag', e.target)
+        let x = 0;
+        let y = 0;
+        
+        if(!e){
+            e = window.event;
+        }
+        
+        console.log(e)
+        
+        if(e.pageX || e.pageY){
+            x = e.pageX;
+            y = e.pageY;
+            console.log(x,y)
+        }
+    }
+
+    body.addEventListener('mousemove', doDrag(e));
 </script>
 </body>
 </html>
