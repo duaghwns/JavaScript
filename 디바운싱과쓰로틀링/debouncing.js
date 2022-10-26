@@ -1,6 +1,12 @@
 const $input = document.querySelector('#debounce')
 const $msg = document.querySelector('#msg1')
 
+/**
+ * ASDFASDF
+ * @param {*} callback 
+ * @param {*} delay 
+ * @returns 
+ */
 const debounce = (callback, delay) => {
     let timer;
     // debounce 함수는 timer를 기억하는 클로저를 반환한다.
