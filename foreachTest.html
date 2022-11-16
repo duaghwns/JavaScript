@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>첫번째</span>
+    <input type="text" name="num1" ><br>
+    <span>두번째</span>
+    <input type="text" name="num2" ><br>
+
+    <div>
+        <span>라디오</span>
+        <input type="radio" name="chk" value="a">
+        <input type="radio" name="chk" value="b">
+        <input type="radio" name="chk" value="c">
+        <hr>
+        <button onclick="chked()">check</button>
+    </div>
+<script>
+    const num1 = document.querySelector('[name="num1"]')
+    const num2 = document.querySelector('[name="num2"]')
+    const radio = document.querySelectorAll('[name="chk"]')
+
+    function chked() {
+        radio.forEach(a=>{
+            if(a.value == 'b') return;
+            console.log(a)
+        })
+        console.log('===============')
+        for(let i=0;i<radio.length;i++){
+            if(radio[i].value == 'b') return;
+            console.log(radio[i])
+        }
+    }
+
+console.log(123)
+</script>
+</body>
+</html>
