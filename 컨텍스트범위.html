@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+
+
+<script>
+
+// $(document).ready(function(){
+// 	$('p').css('font-size','3.0em');
+// })
+
+$(document).ready(() => {
+	$('p').css('font-size','1.5em');
+	
+	$('p', document.forms[0]).css('background-color','yellow'); 
+	//이 범위안에 있는 p태그 
+// 	$('document.forms[0] p').css('background-color','yellow');  //질문해보기!! 
+	
+	// DOM 변수나 객체에는 "" 안붙임 
+	
+	//클래스 박스1의 div자식들만을 지칭 
+	$('.box1 div').on('click', function(){
+		$('p', this).css('color','red');	
+// 		$('this p').css('color','red'); //이렇게는 안되네? 	
+	})
+	//this는 온클릭 
+})
+
+// window.onload = function(){
+// 	$('p').css('font-size','3.0em');
+// }
+</script>
+</head>
+<body>
+
+<div class="box box1">
+  <br><br>
+  <div id="result1">
+  	<p>무궁화 꽃이 피었습니다</p>
+  </div>
+  
+  <p>사랑은 늘 도망가</p>
+  
+  <form>
+  	<p>우리들의 블루스</p>
+  </form>
+
+  <form>
+  	<p>다시 만날 수 있을까</p>
+  </form>
+
+	<div>
+	<p>별빛같은 나의 사랑아</p>
+	</div>
+</div>
+
+</body>
+</html>
