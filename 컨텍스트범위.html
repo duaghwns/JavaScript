@@ -23,6 +23,7 @@ $(document).ready(() => {
 	// DOM 변수나 객체에는 "" 안붙임 
 	
 	//클래스 박스1의 div자식들만을 지칭 
+	console.log($('.box1 div'))
 	$('.box1 div').on('click', function(){
 		$('p', this).css('color','red');	
 // 		$('this p').css('color','red'); //이렇게는 안되네? 	
