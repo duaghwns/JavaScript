@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 시작일과 종료일 입력받고 유효성 체크하기 -->
+    <div class="container">
+        <input type="date" name="sdate" id="sdate"> ~
+        <input type="date" name="edate" id="edate">
+        <button id="btn">button</button>
+    </div>
+
+    <script>
+        // 선언부
+        const sdate = document.querySelector('input[name="sdate"]');
+        const edate = document.querySelector('#edate');
+        const btn = document.querySelector('#btn');
+
+        // 기능구현
+        const nullCheck = ()=>{
+            if(sdate.value == '' || edate.value == ''){
+                alert('날짜를 입력해주세요.');
+                return false;
+            }
+            return true;
+        }
+
+        const checkDate = ()=>{
+            if(sdate.value > edate.value){
+                alert('시작일은 종료일보다 이전 날짜를 입력해야 합니다.');
+                return;
+            }
+            alert('저장완료');
+        }
+
+        // 실행
+        btn.onclick = ()=>{
+            if(nullCheck()){
+                checkDate();
+            }
+        }
+    </script>
+</body>
+</html>
