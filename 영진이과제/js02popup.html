@@ -32,6 +32,13 @@
             return true;
         }
 
+        const checkDate = ()=>{
+            if(sdate.value > edate.value){
+                alert('시작일은 종료일보다 이전 날짜를 입력해야 합니다.');
+                return;
+            }
+        }
+
         // 3초 동안 타이머를 countText에 표시하고, 3초 후에 window.close()를 실행
         const timerCheck = timer =>{
             setInterval(() => {
@@ -44,20 +51,19 @@
             }, 1000);
         }        
 
-        const checkDate = ()=>{
-            if(sdate.value > edate.value){
-                alert('시작일은 종료일보다 이전 날짜를 입력해야 합니다.');
-                return;
-            }
-
+        const save = ()=>{
+            // localStorage에 저장
+            sessionStorage.setItem('sdate', sdate.value);
+            sessionStorage.setItem('edate', edate.value);
             alert('저장완료');
-            timerCheck(3);
         }
 
         // 실행
         btn.onclick = ()=>{
             if(nullCheck()){
                 checkDate();
+                save();
+                timerCheck(3);
             }
         }
     </script>
