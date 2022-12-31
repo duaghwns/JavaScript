@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #counterTitle:hover {
+            cursor: pointer;
+            color:blue !important;
+        }
+
+        button:hover {
+            color: blue !important;
+        }
+
+        table, table tr, table td, table th, input{
+            border-radius: 3px;
+        }
+
+        th{
+            background-color: #f1f1f1;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+           color:red ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table style="text-align: center;" border="1px; solid">
+            <tr>
+                <th colspan="2">
+                    <h1 id="counterTitle" title="초기화">D-Day Counter</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="date" name="date" id="id_date">
+                </td>
+                <td>
+                    <button id="btn">날짜 구하기</button>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <span>오늘로부터 며칠?</span>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="getDayText">
+                </td>
+                <td>
+                    <button id="getDayBtn">날짜 구하기</button>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    결과
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" style="height: 20px;">
+                    <span id="result"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        // 선언부
+        const counterTitle = document.querySelector('#counterTitle');
+        const dday_btn = document.querySelector('#btn');
+        const result = document.querySelector('#result');
+        const id_date = document.querySelector('#id_date');
+        const getDayText = document.querySelector('#getDayText');
+        const getDayBtn = document.querySelector('#getDayBtn');
+
+        // 오늘 날짜 구하기
+        const getToday = format =>{
+            const date = new Date();
+            const [year, month, day] = [date.getFullYear(), date.getMonth()+1, date.getDate()];
+
+            switch(format){
+                case 'y-m-d':return `${year}-${month}-${day}`;
+                case 'ymd' : return `${year}${month}${day}`;
+                case 'arr' : return [year, month, day];
+                case 'now' : return date.getDate();
+            }
+
+            return new Date(year,month,day).getTime();
+        }
+
+        // 시간을 일로 변환
+        const convertToDay = param => {
+            return (param / (1000 * 60 * 60 * 24));
+        }
+
+        // 입력한 날짜가 없을 경우
+        const nullCheck = param => {
+            if(isNaN(param) || param == ''){
+                result.style.color = 'red';
+                result.innerText = '날짜를 입력해주세요';
+                return true;
+            } else {
+                result.style.color = 'black';
+            }
+            return false;
+        }
+
+        // 초기화
+        counterTitle.onclick = ()=>{
+            id_date.value = '';
+            result.innerText = '';
+            getDayBtn.value = '';
+        }
+
+        // 첫번째 날짜 구하기 버튼 클릭
+        dday_btn.onclick = ()=>{
+            let inputDateValue = id_date.value.split('-');
+            inputDateValue = new Date(inputDateValue[0],inputDateValue[1],inputDateValue[2]).getTime();
+
+            // 입력한 날짜가 없을 경우
+            if(nullCheck(inputDateValue)) return;
+
+            if(inputDateValue > getToday()){
+                result.innerText = `${convertToDay((inputDateValue - getToday()))} 일 남았습니다.`;
+
+            } else if (inputDateValue < getToday()){
+                result.innerText = `${convertToDay((getToday() - inputDateValue))} 일 지났습니다.`;
+
+            } else {
+                result.innerText = '오늘입니다.';
+            }
+        }
+
+        // 두번째 날짜 구하기 버튼 클릭
+        getDayBtn.addEventListener('click', ()=>{
+            console.log(getDayText.value)
+            if(nullCheck(getDayText.value)) return;
+            let dd = convertToDay(getToday())
+            console.log(dd)
+            if(getDayText.value.charAt(0) == '-'){
+                console.log('음수')
+                result.innerText = `${0} 일`;
+                return;
+            }
+
+            result.innerText = getDayText.value;
+        });
+    </script>
+</body>
+
+</html>
