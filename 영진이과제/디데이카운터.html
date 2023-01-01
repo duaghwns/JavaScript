@@ -24,6 +24,10 @@
             background-color: #f1f1f1;
         }
 
+        th > .th_title:hover {
+            background-color: #bdbdbd;
+        }
+
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -36,7 +40,7 @@
     <div class="container">
         <table style="text-align: center;" border="1px; solid">
             <tr>
-                <th colspan="2">
+                <th colspan="2" class="th_title">
                     <h1 id="counterTitle" title="초기화">D-Day Counter</h1>
                 </th>
             </tr>
@@ -81,10 +85,10 @@
         const id_date = document.querySelector('#id_date');
         const getDayText = document.querySelector('#getDayText');
         const getDayBtn = document.querySelector('#getDayBtn');
+        const date = new Date();
 
         // 오늘 날짜 구하기
         const getToday = format =>{
-            const date = new Date();
             const [year, month, day] = [date.getFullYear(), date.getMonth()+1, date.getDate()];
 
             switch(format){
@@ -96,6 +100,11 @@
 
             return new Date(year,month,day).getTime();
         }
+
+        console.log(getToday('y-m-d'));
+        console.log(getToday('ymd'));
+        console.log(getToday('arr'));
+        console.log(getToday('now'));
 
         // 시간을 일로 변환
         const convertToDay = param => {
@@ -116,9 +125,9 @@
 
         // 초기화
         counterTitle.onclick = ()=>{
+            getDayText.value = '';
             id_date.value = '';
             result.innerText = '';
-            getDayBtn.value = '';
         }
 
         // 첫번째 날짜 구하기 버튼 클릭
@@ -142,17 +151,12 @@
 
         // 두번째 날짜 구하기 버튼 클릭
         getDayBtn.addEventListener('click', ()=>{
-            console.log(getDayText.value)
+            const aa = new Date();
+            let dd;
             if(nullCheck(getDayText.value)) return;
-            let dd = convertToDay(getToday())
-            console.log(dd)
-            if(getDayText.value.charAt(0) == '-'){
-                console.log('음수')
-                result.innerText = `${0} 일`;
-                return;
-            }
-
-            result.innerText = getDayText.value;
+            dd = new Date(aa.setDate(aa.getDate() + parseInt(getDayText.value)));
+            dd = `${dd.getFullYear()}년 ${(dd.getMonth()+1)}월 ${dd.getDate()}일`;
+            result.innerText = `${dd}`;
         });
     </script>
 </body>
