@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">button</button>
+    <div id="log"></div>
+    <script>
+    /* 문제. 다음 함수를 간소화 하시오. */
+    
+    /*
+        function orderJuice(el, orderList) {
+            if (el) {
+                if(Array.isArray(orderList)) {
+                    el.addEventListener('click', function() {
+                        setTimeout(function() {
+                            for(let i = 0; i < orderList.length; i++) {
+                                document.querySelector('#log').innerHTML += '<br>' + a + ' 주문했습니다.';
+                            }
+                        }, 3000);
+                    });
+                }
+            }
+        }
+        
+        orderJuice(document.querySelector('#btn'), ['참이슬','진로','테라']);
+    */
+        let arr = ['참이슬','진로','테라'];
+
+        const orderJuice = (el, orderList)=>{
+            if(el && Array.isArray(orderList)){
+                el.onclick = ()=> 
+                    setTimeout(()=> 
+                        orderList.forEach( a => document.querySelector('body').innerHTML += `<br>${a} 주문했습니다.`)
+                    ,3000);
+            }
+        }
+
+        orderJuice(document.querySelector('#btn'), arr);
+        
+    </script>
+</body>
+</html>
