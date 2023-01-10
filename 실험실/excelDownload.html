@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>
+        <table border="1px solid red;" class="table_cover">
+            <tr>
+                <th colspan="99">엑셀 다운로드 테스트</th>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td>염호준</td>
+            </tr>
+            <tr>
+                <th>나이</th>
+                <td>28..<a href="https://www.naver.com">asdf</a></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" valign="top">내용@@</td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="btn" style="width:100%">엑셀 다운받기</button></td>
+            </tr>
+        </table>
+    </p>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function doExcelDown(selector){
+            let tab_text = ''; 
+            tab_text += `<html xmlns:x="urn:schemas-microsoft-com:office:excel">`;
+            tab_text += `<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">`;
+            tab_text += `<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>`;
+            tab_text += `<x:Name>Test Sheet</x:Name>`;
+            tab_text += `<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>`;
+            tab_text += `</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body><table class="basic" style="width:120px;">`;
+            tab_text += `<table border='1px'><tr><td>`;
+            
+            let tabledata =  $(selector);
+            let exportTable = $(tabledata).clone();
+            
+            exportTable.find('input').each((index, elem) => {
+                $(elem).remove(); 
+            });
+            
+            let ua = window.navigator.userAgent;
+            console.log(ua)
+            let msie = ua.indexOf("MSIE ");
+            let data_type = 'data:application/vnd.ms-excel';
+            let fileName = "excel" + '.xls';
+
+            tab_text += exportTable.html(); 
+            
+
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                tab_text = tab_text.replace(/\;/gi,"galgo");
+                tab_text = tab_text.split(`<table class="basic" style="width: 120pxgalgo">`).join(`</td><td><table class="basic" style="width: 120pxgalgo">`);
+                tab_text = tab_text.replace(/galgo/gi,"\;");			
+            } else {
+                tab_text = tab_text.split(`<table class="basic" style="width:120px;">`).join(`</td><td><table class="basic" style="width:120px;">`);
+            }
+
+            tab_text += `</td></tr></table></body></html>`;
+
+            //Explorer 환경에서 다운로드
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                if (window.navigator.msSaveBlob) {
+                let blob = new Blob([tab_text], {
+                type: "application/csv;charset=utf-8;"
+                });
+                navigator.msSaveBlob(blob, fileName);
+                }
+            } else {
+                let blob2 = new Blob([tab_text], {
+                    type: "application/csv;charset=utf-8;"
+                });
+
+                let filename = fileName;
+
+                let elem = window.document.createElement('a');
+                elem.href = window.URL.createObjectURL(blob2);
+                elem.download = filename;
+                document.body.appendChild(elem);
+                elem.click();
+                document.body.removeChild(elem);
+            }
+        }
+
+        document.querySelector("#btn").addEventListener("click",()=>{ doExcelDown(".table_cover")});
+    </script>
+</body>
+</html>
