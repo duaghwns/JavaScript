@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        border: 1px;
+        background-color: white;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>Todo List</h1>
+    <input id="textbox" type="text" placeholder="할 일 입력.." >
+    <button id="btn">추가</button>
+
+    <ul class="todolist"></ul>
+    <script>
+        // 선언부
+        const button = document.querySelector('#btn');
+        const textbox = document.querySelector('#textbox');
+        const todolist = document.querySelector('.todolist');
+
+        let id = 0;
+
+        // 구현
+        function createTodo() {
+            // 1. textbox의 값을 불러오기
+            console.log(textbox.value)
+    
+            // 2. todolist 에 값을 추가해주기
+            todolist.innerHTML += 
+            `<li id='li_${id}'>${textbox.value} 
+                <button id='com_${id}' class='complete' onclick='complete(${id})'>✔️</button>
+                <button id='del_${id}' class='deleteTodo' style='display:none' onclick='deleteTodo(${id})'>✖️</button>
+            </li>`;
+            // 3. textbox 값 초기화
+            textbox.value  = '';
+            id++;
+        }
+
+        // 완료 이벤트
+        function complete(arg){
+            let data = document.querySelector(`#li_${arg}`);
+            // 완료된 todo 밑줄 쳐주기
+            data.innerHTML = `<strike>${data.innerHTML}</strike>`;
+            // 완료버튼 안보이게 처리하고 삭제버튼 보여주기
+            document.querySelector(`#com_${arg}`).style.display = 'none';
+            document.querySelector(`#del_${arg}`).style.display = '';
+        }
+
+        // todo 삭제 이벤트
+        function deleteTodo(arg){
+            document.querySelector(`#li_${arg}`).remove();
+        }
+
+        // 이벤트 등록
+        button.addEventListener('click', createTodo);
+        // enter키 입력 시 입력
+        textbox.addEventListener('keypress', event =>{
+            event.keyCode == 13 ? createTodo() : '';
+        });
+
+
+    </script>
+</body>
+</html>
