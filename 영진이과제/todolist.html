@@ -35,13 +35,15 @@
 
         // 구현
         function createTodo() {
+            let text = textbox.value;
+            if(text == "") return;
             todolist.innerHTML += 
-            `<li id='li_${id}'>${textbox.value} 
+            `<li id='li_${id}'>${text} 
                 <button id='com_${id}' class='complete' onclick='complete(${id})'>✔️</button>
                 <button id='del_${id}' class='deleteTodo' style='display:none' onclick='deleteTodo(${id})'>✖️</button>
             </li>`;
             // textbox 값 초기화
-            textbox.value  = '';
+            textbox.value = '';
             id++;
         }
 
