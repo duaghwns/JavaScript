@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nanum+Myeongjo:wght@700&display=swap');
+
+    *{
+        font-family: 'Nanum Myeongjo', serif;
+    }
+
     button {
         border: 1px;
         background-color: white;
@@ -19,12 +25,46 @@
         height: 30px;
         width: 200px;
     }
+
+    
+    .wrapper{
+        display: grid;
+        place-content: center;
+        min-height: 80vh;
+    }
+
+    #container{
+        background-color: white;
+        border-radius: 30px;
+        height:50vh;
+        width: 50vh;
+        box-shadow: 3px 3px 3px 3px gray;
+        overflow: scroll;
+    }
+
+    .box{
+        text-align: center;
+    }
+
+    .todolist {
+        margin-left: 100px;
+        text-align: left;
+    }
+
 </style>
 <body>
-    <h1>Todo List</h1>
-    <input id="textbox" type="text" placeholder="할 일 입력.." >
-    <button id="btn">추가</button>
-    <ul class="todolist"></ul>
+    <div class="wrapper">
+        <div id="container">
+            <div class="box">
+                <h1>Todo List</h1>
+                <input id="textbox" type="text" placeholder="할 일 입력.." >
+                <button id="btn">추가</button>
+            </div>
+            <div class="box">
+                <ul class="todolist"></ul>
+            </div>
+        </div>
+    </div>
 
     <script>
         // 선언부
