@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nanum+Myeongjo:wght@700&display=swap');
+
+    *{
+        font-family: 'Nanum Myeongjo', serif;
+    }
+
+    button {
+        border: 1px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #textbox{
+        border: 2px solid #f0f1f1;
+        border-radius: 5px;
+        height: 30px;
+        width: 200px;
+    }
+
+    
+    .wrapper{
+        display: grid;
+        place-content: center;
+        min-height: 80vh;
+    }
+
+    #container{
+        background-color: white;
+        border-radius: 30px;
+        height:50vh;
+        width: 50vh;
+        transition: 0.5s;
+        border: 1px solid rgba(120, 120, 120, 0.5);
+        overflow: scroll;
+    }
+
+    #container::-webkit-scrollbar {
+        display: none;
+    }
+
+    #container:hover{
+        transition: 0.5s;
+        box-shadow: 3px 3px 3px 3px gray;
+    }
+
+    .box{
+        text-align: center;
+    }
+
+    .todolist {
+        margin-left: 100px;
+        text-align: left;
+    }
+
+</style>
+<body>
+    <div class="wrapper">
+        <div id="container">
+            <div class="box">
+                <h1>Todo List</h1>
+                <input id="textbox" type="text" placeholder="할 일 입력.." >
+                <button id="btn">추가</button>
+            </div>
+            <div class="box box2">
+                    <ul class="todolist"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 선언부
+        const button = document.querySelector('#btn');
+        const textbox = document.querySelector('#textbox');
+        const todolist = document.querySelector('.todolist');
+        let id = 0;
+
+        // 구현
+        function createTodo() {
+            let text = textbox.value;
+            if(text == "") return;
+            todolist.innerHTML += 
+            `<li id='li_${id}'>${text} 
+                <button id='com_${id}' class='complete' onclick='complete(${id})'>✔️</button>
+                <button id='del_${id}' class='deleteTodo' style='display:none' onclick='deleteTodo(${id})'>✖️</button>
+            </li>`;
+            // textbox 값 초기화
+            textbox.value = '';
+            id++;
+        }
+
+        // 완료 이벤트
+        function complete(arg){
+            let data = document.querySelector(`#li_${arg}`);
+            // 완료된 todo 밑줄 쳐주기
+            data.innerHTML = `<strike>${data.innerHTML}</strike>`;
+            // 완료버튼 안보이게 처리하고 삭제버튼 보여주기
+            document.querySelector(`#com_${arg}`).style.display = 'none';
+            document.querySelector(`#del_${arg}`).style.display = '';
+        }
+
+        // todo 삭제 이벤트
+        function deleteTodo(arg){
+            document.querySelector(`#li_${arg}`).remove();
+        }
+
+        // 이벤트 등록
+        button.addEventListener('click', createTodo);
+        // enter키 입력 시 입력
+        textbox.addEventListener('keypress', event =>{
+            event.keyCode == 13 ? createTodo() : '';
+        });
+
+
+    </script>
+</body>
+</html>
