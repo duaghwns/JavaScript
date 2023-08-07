@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./menubarTest.css"/>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="article">
+      <header>
+        <div class="menubar">
+          <div class="dd">☰</div>
+          <nav class="nav">
+            <ul>
+              <li><a href="#">menu1</a></li>
+              <li><a href="#">menu2</a></li>
+              <li><a href="#">menu3</a></li>
+              <li><a href="#">menu4</a></li>
+              <li><a href="#">menu5</a></li>
+              <li><a href="#">menu6</a></li>
+            </ul>
+          <ul>
+            <li><a href="#">subtitle1</a></li>
+            <li><a href="#">subtitle2</a></li>
+            <li><a href="#">완주대둔산체</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+</div>
+
+<footer>
+
+</footer>
+
+<script>
+  const menubar = document.querySelector('.menubar')
+  const body = document.querySelector('body')
+  menubar.addEventListener('click', e=>{
+    body.style.backgroundColor = 'black';
+  });
+</script>
+</body>
+</html>

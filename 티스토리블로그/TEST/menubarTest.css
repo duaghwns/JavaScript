@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'TTWanjudaedunsancheB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'TTWanjudaedunsancheB';
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav .hide {
+  display: none;
+}
+
+.dd {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.dd:hover {
+  transform: rotate(90deg);
+  transition: all 0.1s;
+}
+
+.dd:not(:hover) {
+  transition: all 0.1s;
+}
+
+li:hover {
+  transition: 0.1s;
+  font-size: 1.2em;
+}
+
+li:not(:hover) {
+  transition: all 0.1s;
+}
