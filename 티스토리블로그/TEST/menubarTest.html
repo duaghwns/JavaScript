@@ -42,9 +42,7 @@
   menubar.addEventListener('click', e=>{
     const darkMode = body.style.backgroundColor == 'black';
     body.style.backgroundColor = 
-      body.style.backgroundColor == 'black' 
-      ? 'white' 
-      : 'black';
+      darkMode ? 'white' : 'black';
   });
 </script>
 </body>
