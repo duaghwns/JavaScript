@@ -5,12 +5,28 @@
   font-style: normal;
 }
 
+/* 기본 옵션 */
 body {
   font-family: 'TTWanjudaedunsancheB';
 }
 
 a {
   text-decoration: none;
+}
+
+/* 네비게이션바 */
+
+.menubar {
+  width: 10%;
+  height: 200px;
+  margin-top: 20px;
+  padding: 20px;
+  overflow: scroll;
+  border: 1px solid blanchedalmond;
+}
+/* 스크롤바 가리기 */
+.menubar::-webkit-scrollbar {
+  display: none;
 }
 
 .nav .hide {
@@ -40,4 +56,21 @@ li:hover {
 
 li:not(:hover) {
   transition: all 0.1s;
+}
+
+/* 버튼 */
+.btn {
+  transition: all 0.1s;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  /* 애니메이션 효과 */
+  transition: 0.1s;
+  font-size: 1.2em;
+  /* 테두리 */
+  border: none;
+  box-shadow:2px 2px 6px 2px #8a8a8a;
 }
