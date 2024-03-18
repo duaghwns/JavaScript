@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="color"] {
+            width: 50px;
+            height: 30px;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        
+        input[type="color"]::after {
+            /* 내용으로 텍스트 설정 */
+            content: "색상 선택";
+            /* 위치 조정 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 가운데 정렬 */
+            /* 기타 스타일 설정 */
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box" style="width: 100%; height:500px">
+        <span id="chnCol"></span>
+    </div>
+    <div>
+        <input type="color" id="boxcolor" name="boxcolor" oninput="inputColor()" style="border: none; width:100%; height:500px">
+        <span id="valCol" style="position:absolute;">여기를 클릭</span>
+    </div>
+
+<script>
+    const inpt_clr = document.querySelector('#boxcolor');
+    const val = document.querySelector('#valCol');
+    const box = document.querySelector('#box');
+    const chn = document.querySelector('#chnCol');
+    
+    const findOppositeColor = color => {
+        // 입력된 색상을 RGB 형식으로 변환
+        var hex = color.replace('#', '');
+        var r = parseInt(hex.substring(0, 2), 16);
+        var g = parseInt(hex.substring(2, 4), 16);
+        var b = parseInt(hex.substring(4, 6), 16);
+    
+        // RGB 값의 반대색 계산
+        var oppositeR = 255 - r;
+        var oppositeG = 255 - g;
+        var oppositeB = 255 - b;
+    
+        // 반대색을 표현하는 CSS 색상 문자열 생성
+        var oppositeColor = '#' + 
+            ("0" + oppositeR.toString(16)).slice(-2) + 
+            ("0" + oppositeG.toString(16)).slice(-2) + 
+            ("0" + oppositeB.toString(16)).slice(-2);
+    
+        return oppositeColor;
+    }
+
+    const inputColor = ()=> {
+        val.innerHTML = inpt_clr.value;
+        val.style.content = inpt_clr.value;
+        chn.innerHTML = findOppositeColor(inpt_clr.value);
+        val.style.color = findOppositeColor(inpt_clr.value);
+        box.style.backgroundColor = findOppositeColor(inpt_clr.value);
+        val.style.setProperty('--after-content', inpt_clr.value)
+    }
+</script>
+</body>
+</html>
