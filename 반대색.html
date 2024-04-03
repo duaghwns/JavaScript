@@ -46,11 +46,16 @@
         <span id="valCol" style="position:absolute;">여기를 클릭</span>
     </div>
 <script src="./DateUtil.js"></script>
-<script src="./TestUtil.js"></script>
-<script src="./util.js"></script>
+<script src="./VMSUtil.js"></script>
+<script src="./TimeUtil.js"></script>
 <script>
     const du = new DateUtil();
-    console.log('last ', du.getLastDay('20240403',true))
+    console.log('last ', du.getLastDay('20240403',true));
+
+
+    const timeUtil = new TimeUtil();
+
+    console.log('time util : ', timeUtil)
 
 
     const inpt_clr = document.querySelector('#boxcolor');
