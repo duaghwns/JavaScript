@@ -22,8 +22,8 @@ class TimeUtil {
     _nextShift = new Array(10);
     _curTabIndex = 1;
 
-    factory = VMSUtil.factoryCreator(ChartHeaderRenderer);
-    nextFactory = VMSUtil.factoryCreator(NextChartHeaderRenderer);
+    // factory = VMSUtil.factoryCreator(ChartHeaderRenderer);
+    // nextFactory = VMSUtil.factoryCreator(NextChartHeaderRenderer);
 
     getTimeIndex(shift) {
         let findStr;
@@ -44,8 +44,8 @@ class TimeUtil {
     }
 
     timeLineInit() {
-        this.factory = VMSUtil.factoryCreator(ChartHeaderRenderer);
-        this.nextFactory = VMSUtil.factoryCreator(NextChartHeaderRenderer);
+        // this.factory = VMSUtil.factoryCreator(ChartHeaderRenderer);
+        // this.nextFactory = VMSUtil.factoryCreator(NextChartHeaderRenderer);
     }
 
     getNextShift(shift) {
