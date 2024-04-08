@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script>
+    const lottoUrl = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo='
+    let round = 1110;
+
+
+    const getLottoNumber = async () => {
+        let returnValue;
+        do {
+            let response = await fetch(lottoUrl+(round++));
+            const data = await response.json();
+            console.log(data)
+            returnValue = data.returnValue
+        } while(returnValue != 'fail')
+        
+        
+    }
+
+    getLottoNumber();
+
+
+</script>
+</body>
+</html>
