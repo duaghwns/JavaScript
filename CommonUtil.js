@@ -45,116 +45,107 @@ class CommonUtil {
         return ret;
     }
     
-   /**
-    * 그리드의 컬럼 이름을 가지고 컬럼 Index를 찾아 리턴해줍니다.
-    * @param {*} grid 
-    * @param {*} colName 
-    * @returns 
-    */
-    GetColumnIndexToColName(grid, colName) {
-        let i = 0;
-        let retVal = 0;
+//    /**
+//     * 그리드의 컬럼 이름을 가지고 컬럼 Index를 찾아 리턴해줍니다.
+//     * @param {*} grid 
+//     * @param {*} colName 
+//     * @returns 
+//     */
+//     GetColumnIndexToColName(grid, colName) {
+//         let i = 0;
+//         let retVal = 0;
         
-        foreach(col in grid.columns) {
-            if(col.headerText == colName) {
-                retVal = i;
-                break;
-            }
+//         foreach(col in grid.columns) {
+//             if(col.headerText == colName) {
+//                 retVal = i;
+//                 break;
+//             }
             
-            if(col.visible)
-                i++;
-        }
-        return retVal;
-    }
+//             if(col.visible)
+//                 i++;
+//         }
+//         return retVal;
+//     }
     
-   /**
-    * 그리드의 DataField를 가지고 컬럼 Index를 찾아 리턴해줍니다.
-    * @param {*} grid 
-    * @param {*} dataField 
-    */
-    GetColumnIndexToDataField(grid, dataField)
-    {
-        let i = 0;
-        let retVal = 0;
+//    /**
+//     * 그리드의 DataField를 가지고 컬럼 Index를 찾아 리턴해줍니다.
+//     * @param {*} grid 
+//     * @param {*} dataField 
+//     */
+//     GetColumnIndexToDataField(grid, dataField) {
+//         let i = 0;
+//         let retVal = 0;
         
-        let group;
-        let col;
+//         let group;
+//         let col;
         
-        foreach(obj in grid.groupedColumns) {
+//         foreach(obj in grid.groupedColumns) {
+//             if(obj is AdvancedDataGridColumnGroup) {
+//                 group = obj as AdvancedDataGridColumnGroup;
+                
+//                 foreach(col in group.children) {
+//                     if(col.dataField == dataField) {
+//                         retVal = i;
+//                         break;
+//                     }                    
+//                     if(group.visible && col.visible)
+//                         i++;
+//                 }
+//             } else {
+//                 col = obj as AdvancedZetDataGridColumn;
+                
+//                 if(col.dataField == dataField) {
+//                     retVal = i;
+//                     break;
+//                 }
+                
+//                 if(col.visible)
+//                     i++;
+//             }
+//         }
+        
+//         /* for each(let col in grid.columns) {
+//             if(col.dataField == dataField) {
+//                 retVal = i;
+//                 break;
+//             }
             
-            if(obj is AdvancedDataGridColumnGroup)
-            {
-                group = obj as AdvancedDataGridColumnGroup;
-                
-                for each(let col in group.children)
-                {
-                    if(col.dataField == dataField) {
-                        retVal = i;
-                        break;
-                    }
-                    
-                    if(group.visible && col.visible)
-                        i++;
-                }
-            }
-            else
-            {
-                col = obj as AdvancedZetDataGridColumn;
-                
-                if(col.dataField == dataField) {
-                    retVal = i;
-                    break;
-                }
-                
-                if(col.visible)
-                    i++;
-            }
-        }
-        
-        /* for each(let col in grid.columns) {
-            if(col.dataField == dataField) {
-                retVal = i;
-                break;
-            }
-            
-            if(col.visible)
-                i++;
-        } */
-        return retVal;
-    }
+//             if(col.visible)
+//                 i++;
+//         } */
+//         return retVal;
+//     }
     
-    GetColumnIndexToDataFieldIncludeHidden(grid, dataField)
-    {
-        let i = 0;
-        let retVal = 0;
+    // GetColumnIndexToDataFieldIncludeHidden(grid, dataField) {
+    //     let i = 0;
+    //     let retVal = 0;
         
-        foreach(let col in grid.columns) {
-            if(col.dataField == dataField) {
-                retVal = i;
-                break;
-            }
+    //     foreach(col in grid.columns) {
+    //         if(col.dataField == dataField) {
+    //             retVal = i;
+    //             break;
+    //         }
             
-            i++;
-        }
-        return retVal;
-    }
+    //         i++;
+    //     }
+    //     return retVal;
+    // }
     
-    GetFieldNameToIndex(grid, index)
-    {
-        let i = 0;
-        let retVal = "";
+    // GetFieldNameToIndex(grid, index) {
+    //     let i = 0;
+    //     let retVal = "";
         
-        for each(let col in grid.columns) {
-            if(i == index) {
-                retVal = col.dataField;
-                break;
-            }
+    //     foreach(col in grid.columns) {
+    //         if(i == index) {
+    //             retVal = col.dataField;
+    //             break;
+    //         }
             
-            if(col.visible)
-                i++;
-        }
-        return retVal;
-    }
+    //         if(col.visible)
+    //             i++;
+    //     }
+    //     return retVal;
+    // }
     
     /*
     두 Object를 서로 교체합니다.
@@ -170,16 +161,16 @@ class CommonUtil {
     /*
     Object를 복사합니다.
     */
-    objectCopy(fromObj, toObj)
-    {
-        let arr = cloneFields(fromObj);
+    // objectCopy(fromObj, toObj)
+    // {
+    //     let arr = cloneFields(fromObj);
         
-        for each(let str in arr)
-        {
-            if(str != "mx_internal_uid")
-                toObj[str] = fromObj[str];
-        }
-    }
+    //     for each(let str in arr)
+    //     {
+    //         if(str != "mx_internal_uid")
+    //             toObj[str] = fromObj[str];
+    //     }
+    // }
     
     /*
     Object type의 모든 변수의 변수명을 Array로 돌려줍니다.
@@ -256,16 +247,16 @@ class CommonUtil {
         return retVal;
     }
     
-    ArrayCollectionContains(ac, col, val)
-    {
-        for each(let obj in ac)
-        {
-            if(obj[col] == val)
-                return true;
-        }
+    // ArrayCollectionContains(ac, col, val)
+    // {
+    //     foreach(let obj in ac)
+    //     {
+    //         if(obj[col] == val)
+    //             return true;
+    //     }
         
-        return false;
-    }
+    //     return false;
+    // }
     
     stringEndsWith(source, pattern)
     {
@@ -275,67 +266,67 @@ class CommonUtil {
             return false;
     }
     
-    isNumber(value) 
-    {
-        let vResult:ValidationResultEvent;
-        let numVal:NumberValidator = new NumberValidator();
+    // isNumber(value) 
+    // {
+    //     let vResult:ValidationResultEvent;
+    //     let numVal:NumberValidator = new NumberValidator();
         
-        vResult = numVal.validate(value);
+    //     vResult = numVal.validate(value);
         
-        return vResult.type == ValidationResultEvent.VALID;
-    }
+    //     return vResult.type == ValidationResultEvent.VALID;
+    // }
     
-    ContainToArrayCollection(ac, col, data)
-    {
-        for each(let obj in ac)
-        {
-            if(obj[col] == data)
-                return true; 
-        }
+    // ContainToArrayCollection(ac, col, data)
+    // {
+    //     for each(let obj in ac)
+    //     {
+    //         if(obj[col] == data)
+    //             return true; 
+    //     }
         
-        return false;
-    }
+    //     return false;
+    // }
     
-    FindObject(ac, col, data)
-    {
-        for each(let obj in ac)
-        {
-            if(obj[col] == data)
-                return obj; 
-        }
+    // FindObject(ac, col, data)
+    // {
+    //     for each(let obj in ac)
+    //     {
+    //         if(obj[col] == data)
+    //             return obj; 
+    //     }
         
-        return null;
-    }
+    //     return null;
+    // }
     
-    StringToObject(str)
-    {
-        let obj = new Object;
+    // StringToObject(str)
+    // {
+    //     let obj = new Object;
             
-        if(str != null && str != "" && str != "undefined")
-        {
-            let arr = str.split(',');
+    //     if(str != null && str != "" && str != "undefined")
+    //     {
+    //         let arr = str.split(',');
             
-            for each(let str2 in arr)
-            {
-                obj[str2.split(':')[0]] = str2.split(':')[1]; 
-            }
-        }
+    //         for each(let str2 in arr)
+    //         {
+    //             obj[str2.split(':')[0]] = str2.split(':')[1]; 
+    //         }
+    //     }
         
-        return obj;
-    }
+    //     return obj;
+    // }
     
-    GetIndex(ac, col, data)
-    {
-        let idx = 0;
+    // GetIndex(ac, col, data)
+    // {
+    //     let idx = 0;
         
-        for each(let obj in ac)
-        {
-            if(obj[col] == data)
-                return idx;	
+    //     for each(let obj in ac)
+    //     {
+    //         if(obj[col] == data)
+    //             return idx;	
                 
-            idx++;
-        }
+    //         idx++;
+    //     }
         
-        return -1;
-    }
+    //     return -1;
+    // }
 }

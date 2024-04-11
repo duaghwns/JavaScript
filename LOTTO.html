@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Lotto Api
+
+<script>
+    const url = 'www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=100';
+
+
+
+    const response = await fetch(url);
+    const reader = response.body.getReader();
+    const chundk = await reader.read();
+    console.log('chundk >> ', chundk)
+</script>
+</body>
+</html>C:\Users\5-5-5\Desktop\github\JavaScript
